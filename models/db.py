@@ -85,7 +85,7 @@ db.define_table('wall',
 					Field('title', 'string'),
 					Field('content', 'text'),
 					Field('cover', 'upload'),
-					signature
+					signature, migrate=False
 				)
 
 Wall = db.wall

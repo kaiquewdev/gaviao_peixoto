@@ -1,0 +1,24 @@
+{{extend 'layout.html'}}
+
+
+<h1>Mural</h1>
+<hr />
+{{if wall:}}
+<section>
+	{{for article in wall['selection']:}}
+	<article>
+		<h4>{{=article.title}}</h4>
+		
+		<p class="content">
+			{{=article.content}}
+		</p>
+		
+		<p class="date">
+			{{cdate = article.created_on}}
+			{{='{0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+		</p>
+	</article>
+	<hr />
+	{{pass}}
+</section>
+{{pass}}

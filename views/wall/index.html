@@ -9,6 +9,10 @@
 	<article>
 		<h4>{{=article.title}}</h4>
 		
+		{{if article.cover:}}
+			{{=IMG(_src=URL(c='default', f='download', args=[article.cover]))}}
+		{{pass}}
+		
 		<p class="content">
 			{{=article.content}}
 		</p>

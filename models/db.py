@@ -88,3 +88,7 @@ db.define_table('wall',
 					signature
 				)
 
+Wall = db.wall
+
+Wall.title.requires=[IS_NOT_EMPTY()]
+Wall.content.requires=[IS_NOT_EMPTY()]

@@ -132,6 +132,7 @@
 'edit profile': 'editar perfil',
 'enter a value': 'enter a value',
 'enter an integer between %(min)g and %(max)g': 'enter an integer between %(min)g and %(max)g',
+'enter date and time as %(format)s': 'enter date and time as %(format)s',
 'export as csv file': 'exportar como um arquivo csv',
 'insert new': 'inserir novo',
 'insert new %s': 'inserir novo %s',

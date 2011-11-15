@@ -5,24 +5,44 @@
 <hr />
 {{if wall:}}
 <section>
+	{{count_articles = 0}}
 	{{for article in wall['selection']:}}
-	<article>
-		<h4>{{=article.title}}</h4>
+		{{count_articles += 1}}
 		
-		{{if article.cover:}}
-			{{=IMG(_src=URL(c='default', f='download', args=[article.cover]))}}
+		{{if count_articles <= 8:}}
+			<article>
+				<h4>{{=article.title}}</h4>
+	
+				{{if article.cover:}}
+					{{=IMG(_src=URL(c='default', f='download', args=[article.cover]))}}
+				{{pass}}
+	
+				<p class="content">
+					{{=article.content}}
+				</p>
+	
+				<p class="date">
+					{{cdate = article.created_on}}
+					{{='{0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+				</p>
+			</article>
+			<hr />
 		{{pass}}
-		
-		<p class="content">
-			{{=article.content}}
-		</p>
-		
-		<p class="date">
-			{{cdate = article.created_on}}
-			{{='{0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
-		</p>
-	</article>
-	<hr />
 	{{pass}}
 </section>
+	{{total_pages = wall['count']/8}}
+	
+	{{if total_pages > 0:}}
+		{{if count_articles <= 8:}}
+			<span class="wall-pagination">
+				<a href="#previous" class="previous">Anterior</a> |
+					{{for n in range(total_pages+1):}}
+						{{if n > 0:}}
+							<a href="#{{=n}}">{{=n}}</a>
+						{{pass}}
+					{{pass}}
+				| <a href="#next" class="next">Próximo</a>			
+			</span>
+		{{pass}}
+	{{pass}}
 {{pass}}

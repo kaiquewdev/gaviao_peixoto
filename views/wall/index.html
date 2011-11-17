@@ -5,11 +5,9 @@
 <hr />
 {{if wall:}}
 <section>
-	{{count_articles = 0}}
 	{{for article in wall['selection']:}}
 		{{count_articles += 1}}
-		
-		{{if count_articles <= 8:}}
+		{{if count_articles <= limit:}}
 			<article class="wall">
 				<header>
 					<div class="inner">
@@ -19,7 +17,7 @@
 
 						<span class="wall-article-date">
 							{{cdate = article.created_on}}
-							{{='{0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+							{{='Criado em {0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
 						</span>
 					</div>
 				</header>
@@ -37,20 +35,4 @@
 		{{pass}}
 	{{pass}}
 </section>
-	
-	{{total_pages = wall['count']/8}}
-	
-	{{if total_pages > 0:}}
-		{{if count_articles <= 8:}}
-			<span class="wall-pagination">
-				<a href="#previous" class="previous">Anterior</a> |
-					{{for n in range(total_pages+1):}}
-						{{if n > 0:}}
-							<a href="#{{=n}}">{{=n}}</a>
-						{{pass}}
-					{{pass}}
-				| <a href="#next" class="next">Próximo</a>			
-			</span>
-		{{pass}}
-	{{pass}}
 {{pass}}

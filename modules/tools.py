@@ -18,10 +18,20 @@ class Table(object):
 			if self.table_name in self.tables:
 				table = self.tables['wall']
 			
-				count = db(table.id>0).count()
-				selection = db(table.id>0).select()
+				count = db(table.id > 0).count()
+				selection = db(table.id > 0).select()
 			
 				if selection and count:
 					return {'selection': selection, 'count': count}
 			else:
 				return False
+	
+	def get_article(self, id=0):
+		table = self.tables['wall']
+		query = table.id == id
+
+		if id > 0:
+			return db(query).select().first()
+
+
+

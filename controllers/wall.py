@@ -8,6 +8,9 @@ def index():
 
 	return {'wall': wall}
 
+def article():
+	pass
+
 def insert():
 	pass
 

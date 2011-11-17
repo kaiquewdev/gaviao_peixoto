@@ -10,26 +10,34 @@
 		{{count_articles += 1}}
 		
 		{{if count_articles <= 8:}}
-			<article>
-				<h4>{{=article.title}}</h4>
-	
-				{{if article.cover:}}
-					{{=IMG(_src=URL(c='default', f='download', args=[article.cover]))}}
-				{{pass}}
-	
-				<p class="content">
-					{{=article.content}}
-				</p>
-	
-				<p class="date">
-					{{cdate = article.created_on}}
-					{{='{0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
-				</p>
+			<article class="wall">
+				<header>
+					<div class="inner">
+						<h4 style="float: left">
+						{{=A(article.title, _href=URL(c='wall', f='article', args=[article.id]))}}
+						</h4>
+
+						<span class="wall-article-date">
+							{{cdate = article.created_on}}
+							{{='{0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+						</span>
+					</div>
+				</header>
+
+				<div class="wall-body-content">
+					<p>
+						{{=article.content}}
+					</p>
+					<a href="{{=URL(c='wall', f='article', args=[article.id])}}"> 
+						Ler o artigo inteiro
+					</a>
+				</div>
 			</article>
 			<hr />
 		{{pass}}
 	{{pass}}
 </section>
+	
 	{{total_pages = wall['count']/8}}
 	
 	{{if total_pages > 0:}}

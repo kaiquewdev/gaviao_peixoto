@@ -735,3 +735,28 @@ a.button:hover {
 .web2py_paginator ul li.current a {
     font-weight: bold !important;
 }
+
+
+/* Style general */
+article.wall header .inner{
+    display: block; 
+    padding-top: 1px;
+    margin: 0 0 45px;
+}
+
+article.wall header span{
+    float: right;
+}
+
+article.wall .wall-body-content{
+    overflow: hidden;
+    display: block;
+}
+
+article.wall .wall-body-content p{
+    float: left;
+}
+
+article.wall .wall-body-content a{
+    float: right;
+}

@@ -27,11 +27,16 @@ class Table(object):
 				return False
 	
 	def get_article(self, id=0):
+		db = self.db
 		table = self.tables['wall']
-		query = table.id == id
 
-		if id > 0:
+		if id > 0 and self.table_name in self.tables:
+			query = table.id == id
+
 			return db(query).select().first()
+		else:
+			return False
+
 
 
 

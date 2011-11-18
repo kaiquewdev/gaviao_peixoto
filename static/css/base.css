@@ -760,3 +760,19 @@ article.wall .wall-body-content p{
 article.wall .wall-body-content a{
     float: right;
 }
+
+section.article-profile div.inner{
+    padding: 5px 0 0;
+    overflow: hidden;
+    display: block;
+}
+
+section.article-profile div.inner h1{
+    float: left;
+}
+
+section.article-profile div.inner span.article-date{
+    margin: 18px 0 0;
+    bottom: 0;
+    float: right;
+}

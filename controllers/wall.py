@@ -13,13 +13,15 @@ def index():
 
 def article():
 	args = request.args
+	table = tools.Table(db, 'wall')
 
 	if not args:
 		redirect(URL(c='wall', f='index'))
 	else:
+		article = table.get_article(args[0])
 		
 
-	return {}
+	return {'article': article}
 
 def insert():
 	pass

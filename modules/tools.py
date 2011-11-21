@@ -19,7 +19,7 @@ class Table(object):
 				table = self.tables['wall']
 			
 				count = db(table.id > 0).count()
-				selection = db(table.id > 0).select()
+				selection = db(table.id > 0).select(orderby=~table.created_on)
 			
 				if selection and count:
 					return {'selection': selection, 'count': count}
@@ -37,6 +37,10 @@ class Table(object):
 		else:
 			return False
 
-
-
-
+class Pagination(object):
+	def get_numeration(self):
+		pass
+		
+if __name__ == "__main__":
+	import doctest
+	doctest.testmod()

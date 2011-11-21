@@ -1,8 +1,12 @@
 {{extend 'layout.html'}}
 
+<header>
+	<div class="wall-inner-head">
+		<h1>Mural</h1>
+		<hr />
+	</div>
+</header>
 
-<h1>Mural</h1>
-<hr />
 {{if wall:}}
 <section>
 	{{for article in wall['selection']:}}
@@ -36,3 +40,21 @@
 	{{pass}}
 </section>
 {{pass}}
+
+<footer>
+	<div class="wall-inner-foot">
+		<div class="pagination">
+			<span class="previous">
+				<a href="#previous">Anterior</a>
+			</span>
+			<span class="index-numbers">
+				<ul>
+					<li><a href="#">1</a></li>
+				</ul>
+			</span>
+			<span class="next">
+				<a href="#next">Proximo</a>
+			</span>
+		</div>
+	</div>
+</footer>

@@ -11,7 +11,7 @@ class Table(object):
 			'wall': db.wall
 		}
 	
-	def get_contents(self):
+	def get_contents(self, limit=[]):
 		if self.table_name and self.db:
 			db = self.db
 			
@@ -19,10 +19,14 @@ class Table(object):
 				table = self.tables['wall']
 			
 				count = db(table.id > 0).count()
-				selection = db(table.id > 0).select(orderby=~table.created_on)
-			
-				if selection and count:
-					return {'selection': selection, 'count': count}
+				if not limit:
+					selection = db(table.id > 0).select(orderby=~table.created_on)
+				elif limit and len(limit) == 2:
+					selection = db(table.id > 0).select(orderby=~table.created_on, limitby=(limit[0], limit[1]))
+				else:
+					return False
+
+				return {'selection': selection, 'count': count}
 			else:
 				return False
 	
@@ -38,9 +42,37 @@ class Table(object):
 			return False
 
 class Pagination(object):
-	def get_numeration(self):
+	def get_numeration(self, total_articles=0, limit_articles=0):
+		'''
+		>>> Pagination().get_numeration(20, 10)
+		2
+		>>> Pagination().get_numeration(20, 0)
+		False
+		>>> Pagination().get_numeration(10, 20)
+		1
+		>>> Pagination().get_numeration(27, 10)
+		3
+		'''
+		total = total_articles
+		limit = limit_articles
+
+		if total > 0 and limit > 0:
+			if total/limit == 0:
+				return (total/limit)+1
+			elif total%limit > 0:
+				return (total/limit)+1
+			else:
+				return (total/limit)
+		else:
+			return False
+	def skeleton():
 		pass
-		
-if __name__ == "__main__":
-	import doctest
-	doctest.testmod()
+
+
+def _test():
+    import doctest
+    doctest.testmod()
+
+
+if __name__ == '__main__':
+	_test()

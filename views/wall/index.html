@@ -10,8 +10,6 @@
 {{if wall:}}
 <section>
 	{{for article in wall['selection']:}}
-		{{count_articles += 1}}
-		{{if count_articles <= limit:}}
 			<article class="wall">
 				<header>
 					<div class="inner">
@@ -36,7 +34,6 @@
 				</div>
 			</article>
 			<hr />
-		{{pass}}
 	{{pass}}
 </section>
 {{pass}}
@@ -44,16 +41,29 @@
 <footer>
 	<div class="wall-inner-foot">
 		<div class="pagination">
-			<span class="previous">
-				<a href="#previous">Anterior</a>
-			</span>
+			<span>Ir para a pagina:</span>
 			<span class="index-numbers">
 				<ul>
-					<li><a href="#">1</a></li>
+					{{for n in range(numeration+1):}}
+							{{if n > 0:}}
+								{{if not args and n == 1:}}
+								<li class="marked">
+								{{elif args:}}
+									{{if int(args[0]) == n:}}
+										<li class="marked">
+									{{else:}}
+										<li>
+									{{pass}}
+								{{else:}}
+									<li>
+								{{pass}}
+									<a href="{{=URL(c='wall', f='index', args=[n])}}">
+										{{=n}}
+									</a>
+								</li>
+							{{pass}}
+					{{pass}}
 				</ul>
-			</span>
-			<span class="next">
-				<a href="#next">Proximo</a>
 			</span>
 		</div>
 	</div>

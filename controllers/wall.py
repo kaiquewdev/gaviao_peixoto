@@ -3,13 +3,22 @@
 import tools
 
 def index():
+	args = request.args
 	table = tools.Table(db, 'wall')
-	wall = table.get_contents()
-	#Pagination
 	limit = 10
-	count_articles = 0
+	wall = table.get_contents([0, limit])
+	numeration = tools.Pagination().get_numeration(wall['count'], limit)
 
-	return {'wall': wall, 'limit': limit, 'count_articles': count_articles}
+	if args:
+		index = int(args[0])
+		start = limit*index-limit
+		end = limit*index
+		wall = table.get_contents([start, end])
+
+	return {'wall': wall, 
+			'limit': limit,
+			'numeration': numeration, 
+			'args': args}
 
 def article():
 	args = request.args

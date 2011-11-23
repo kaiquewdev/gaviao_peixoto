@@ -1,0 +1,37 @@
+{{extend 'layout.html'}}
+
+<section class="post-profile">
+	<article>
+		<header>
+			<div class="inner">
+				<h1>{{=post.title}}</h1>
+				<span class="post-date">
+					{{cdate = post.created_on}}
+					{{='{0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+				</span>
+			</div>
+			<hr />
+		</header>
+
+		<div class="post-body-content">
+			{{if article.cover:}}
+				<figure class="post-cover-img">
+					{{=IMG(_src=URL(c='default', f='download', args=[post.cover]))}}
+				</figure>
+				<hr />
+			{{pass}}
+
+			<span class="post-content">
+				{{=P(post.content)}}
+			</span>
+		</div>
+		<hr />
+		<footer>
+			<div class="navigation">
+				<p>
+					<a href="{{=URL(c='post', f='index')}}">Voltar</a>
+				</p>
+			</div>
+		</footer>		
+	</article>
+</section>

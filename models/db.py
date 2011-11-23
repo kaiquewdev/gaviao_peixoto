@@ -71,6 +71,11 @@ use_janrain(auth,filename='private/janrain.key')
 ## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
+
+#############################################################
+## Default table for register new dates on the other tables.
+#############################################################
+
 signature = db.Table(db, 'signature',
 						Field('created_on', 'datetime', default=request.now),
 						Field('created_by', db.auth_user, default=auth.user_id),			
@@ -79,7 +84,7 @@ signature = db.Table(db, 'signature',
 					)
 					
 #################
-## System tables 
+## New tables 
 #################
 db.define_table('wall', 
 					Field('title', 'string'),
@@ -92,3 +97,16 @@ Wall = db.wall
 
 Wall.title.requires=[IS_NOT_EMPTY()]
 Wall.content.requires=[IS_NOT_EMPTY()]
+
+db.define_table('blog',
+					Field('title', 'string'),
+					Field('content', 'text'),
+					Field('cover', 'upload'),
+					Field('tag', 'string', default='unsigned'),
+					signature, migrate=False
+				)
+
+Blog = db.blog
+
+Blog.title.requires=[IS_NOT_EMPTY()]
+Blog.content.requires=[IS_NOT_EMPTY()]

@@ -1,0 +1,70 @@
+{{extend 'layout.html'}}
+
+<header>
+	<div class="blog-inner-head">
+		<h1>Blog</h1>
+		<hr />
+	</div>
+</header>
+
+{{if blog:}}
+<section>
+	{{for post in wall['selection']:}}
+			<article class="blog">
+				<header>
+					<div class="inner">
+						<h4 style="float: left">
+						{{=A(post.title, _href=URL(c='blog', f='post', args=[post.id]))}}
+						</h4>
+
+						<span class="blog-article-date">
+							{{cdate = post.created_on}}
+							{{='Públicado em {0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+						</span>
+					</div>
+				</header>
+
+				<div class="blog-body-content">
+					<p>
+						{{=post.content}}
+					</p>
+					<a href="{{=URL(c='blog', f='post', args=[post.id])}}"> 
+						Ler o post inteiro
+					</a>
+				</div>
+			</article>
+			<hr />
+	{{pass}}
+</section>
+{{pass}}
+
+<footer>
+	<div class="blog-inner-foot">
+		<div class="pagination">
+			<span>Ir para a pagina:</span>
+			<span class="index-numbers">
+				<ul>
+					{{for n in range(numeration+1):}}
+							{{if n > 0:}}
+								{{if not args and n == 1:}}
+								<li class="marked">
+								{{elif args:}}
+									{{if int(args[0]) == n:}}
+										<li class="marked">
+									{{else:}}
+										<li>
+									{{pass}}
+								{{else:}}
+									<li>
+								{{pass}}
+									<a href="{{=URL(c='blog', f='index', args=[n])}}">
+										{{=n}}
+									</a>
+								</li>
+							{{pass}}
+					{{pass}}
+				</ul>
+			</span>
+		</div>
+	</div>
+</footer>

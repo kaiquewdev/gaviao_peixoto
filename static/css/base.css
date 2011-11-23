@@ -740,40 +740,48 @@ a.button:hover {
 /* Style general */
 
 /*mural*/
-article.wall header .inner{
+article.wall header .inner,
+article.blog header .inner{
     display: block; 
     padding-top: 1px;
     margin: 0 0 45px;
 }
 
-article.wall header span{
+article.wall header span,
+article.blog header span{
     float: right;
 }
 
-article.wall .wall-body-content{
+article.wall .wall-body-content,
+article.blog .blog-body-content{
     overflow: hidden;
     display: block;
 }
 
-article.wall .wall-body-content p{
+article.wall .wall-body-content p,
+article.blog .blog-body-content p{
     float: left;
 }
 
-article.wall .wall-body-content a{
+article.wall .wall-body-content a,
+article.blog .blog-body-content a{
     float: right;
 }
 
-section.article-profile div.inner{
+section.article-profile div.inner,
+section.post-profile div.inner{
     padding: 5px 0 0;
     overflow: hidden;
     display: block;
 }
 
-section.article-profile div.inner h1{
+section.article-profile div.inner h1,
+section.post-profile div.inner h1{
     float: left;
 }
 
-section.article-profile div.inner span.article-date{
+section.article-profile div.inner span.article-date,
+section.post-profile div.inner span.post-date{
     margin: 18px 0 0;
     bottom: 0;
     float: right;

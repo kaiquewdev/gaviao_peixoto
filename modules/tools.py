@@ -8,15 +8,17 @@ class Table(object):
 		
 		db = self.db
 		self.tables = {
-			'wall': db.wall
+			'wall': db.wall,
+			'blog': db.blog
 		}
 	
 	def get_contents(self, limit=[]):
 		if self.table_name and self.db:
 			db = self.db
+			tablename = self.table_name
 			
 			if self.table_name in self.tables:
-				table = self.tables['wall']
+				table = self.tables[tablename]
 			
 				count = db(table.id > 0).count()
 				if not limit:
@@ -32,9 +34,10 @@ class Table(object):
 	
 	def get_article(self, id=0):
 		db = self.db
-		table = self.tables['wall']
+		tablename = self.table_name
+		table = self.tables[tablename]
 
-		if id > 0 and self.table_name in self.tables:
+		if id > 0 and tablename in self.tables:
 			query = table.id == id
 
 			return db(query).select().first()
@@ -65,6 +68,7 @@ class Pagination(object):
 				return (total/limit)
 		else:
 			return False
+	
 	def skeleton():
 		pass
 

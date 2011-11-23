@@ -30,7 +30,11 @@ $(function () {
 			$('input#message')[0]
 		];
 
-	$('.contact').find('input, textarea').bind('focus', function () {
-		//validacao para mostrar para o usuario o que esta faltando ou errado
-	});
+	$('.contact').find('input, textarea').bind('keypress', function () {
+		if (is_empty($(this).value) == false) {
+			$(this).addClass('error');
+		} else {
+			$(this).removeClass('error');
+		}
+	})
 });

@@ -738,6 +738,8 @@ a.button:hover {
 
 
 /* Style general */
+
+/*mural*/
 article.wall header .inner{
     display: block; 
     padding-top: 1px;
@@ -776,7 +778,9 @@ section.article-profile div.inner span.article-date{
     bottom: 0;
     float: right;
 }
+/*fim mural*/
 
+/*pagination*/
 div.pagination span{
     float: left;
 }
@@ -798,3 +802,65 @@ div.pagination span.index-numbers ul li.marked{
     background: #ccc;
     text-decoration: underline;
 }
+/*fim pagination*/
+
+/*contato*/
+section.contact article fieldset{
+    width: 50%;
+    padding: 10px;
+    border:none;
+    border-right: 1px solid #ccc;
+}
+
+section.contact article fieldset label{
+    display: block;
+    clear: right;
+    padding: 5px;
+}
+
+section.contact article fieldset label span.contact-label{
+    display: block;
+    clear: right;
+    margin: 0 0 10px;
+    padding: 5px 5px;
+
+    font-size: 16px;
+}
+
+section.contact article fieldset label input,
+section.contact article fieldset label textarea {
+    padding: 8px 5px;
+    margin: 0;
+    width: 400px;
+
+    border-radius: 3px;
+
+    font-weight:500;
+    font-size: 100%;
+
+    resize: none;
+}
+
+section.contact article fieldset label input.error,
+section.contact article fieldset label textarea.error {
+    border: 1px solid #888;
+    background: #901;
+
+    color:#ffffff;
+}
+
+section.contact article fieldset label textarea {
+    height: 200px;
+}
+
+section.contact article fieldset label input.act {
+    font-weight: 700;
+    font-size: 12px;
+    padding: 0 25px 0;
+    margin: 10px 8px;
+    float: right;
+    width: auto;
+    height: 30px;
+    display: block;
+}
+/*fim contato*/

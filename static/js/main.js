@@ -1,0 +1,36 @@
+function is_email(email, pattern) {
+	email = email || '';
+	pattern = /[a-z0-9]+@[a-z0-9]+(([\.][a-z]{2,3}){1,2})$/;
+
+	if (typeof email !== 'undefinded') {
+		if (email.match(pattern)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
+function is_empty(field) {
+	field = field || '';
+	
+	if (typeof field !== 'undefined') {
+		if (field === '') {
+			return true;			
+		} else {
+			return false;					
+		}
+	}	
+}
+
+$(function () {
+	var fields = [
+			$('input#name')[0],
+			$('input#email')[0],
+			$('input#message')[0]
+		];
+
+	$('.contact').find('input, textarea').bind('focus', function () {
+		//validacao para mostrar para o usuario o que esta faltando ou errado
+	});
+});

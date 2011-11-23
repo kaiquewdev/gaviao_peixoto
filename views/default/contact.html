@@ -1,3 +1,34 @@
 {{extend 'layout.html'}}
 
-<!-- insert a model of boilerplate -->
+<section class="contact">
+	<article>
+		<header>
+			<div class="inner">
+				<h1>Contato</h1>
+				<hr />
+			</div>
+		</header>
+		<div class="contact-main">
+			<form action="#" method="POST">
+				<fieldset>
+					<label for="Nome">
+						<span class="contact-label contact-name">Nome:</span>
+						<input type="text" name="name" id="name" />
+					</label>
+					<label for="Email">
+						<span class="contact-label contact-email">Email:</span>
+						<input type="text" name="email" id="email" />
+					</label>
+					<label for="Mensagem">
+						<span class="contact-label contact-message">Mensagem:</span>
+						<textarea name="message" id="message">
+						</textarea>
+					</label>	
+					<label>
+						<input type="submit" class="act act-sent" value="Enviar" />
+					</label>
+				</fieldset>
+			</form>
+		</div>
+	</article>
+</section>

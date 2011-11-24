@@ -63,3 +63,16 @@ CREATE TABLE wall(
     updated_by INTEGER REFERENCES auth_user(id) ON DELETE CASCADE
 );
 success!
+timestamp: 2011-11-23T22:30:57.135131
+CREATE TABLE blog(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    content TEXT,
+    cover CHAR(512),
+    tag CHAR(512),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    updated_on TIMESTAMP,
+    updated_by INTEGER REFERENCES auth_user(id) ON DELETE CASCADE
+);
+success!

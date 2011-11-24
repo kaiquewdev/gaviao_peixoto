@@ -42,8 +42,8 @@ auth.define_tables()
 ## configure email
 mail=auth.settings.mailer
 mail.settings.server = 'logging' or 'smtp.gmail.com:587'
-mail.settings.sender = 'you@gmail.com'
-mail.settings.login = 'username:password'
+mail.settings.sender = 'kaique.developer@gmail.com'
+mail.settings.login = 'kaique.developer:password'
 
 ## configure auth policy
 auth.settings.registration_requires_verification = False
@@ -90,21 +90,22 @@ db.define_table('wall',
 					Field('title', 'string'),
 					Field('content', 'text'),
 					Field('cover', 'upload'),
-					signature, migrate=False
+					signature, migrate=True
 				)
-
-Wall = db.wall
-
-Wall.title.requires=[IS_NOT_EMPTY()]
-Wall.content.requires=[IS_NOT_EMPTY()]
 
 db.define_table('blog',
 					Field('title', 'string'),
 					Field('content', 'text'),
 					Field('cover', 'upload'),
 					Field('tag', 'string', default='unsigned'),
-					signature, migrate=False
+					signature, migrate=True
 				)
+
+
+Wall = db.wall
+
+Wall.title.requires=[IS_NOT_EMPTY()]
+Wall.content.requires=[IS_NOT_EMPTY()]
 
 Blog = db.blog
 

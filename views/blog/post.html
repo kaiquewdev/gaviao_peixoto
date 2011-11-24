@@ -14,7 +14,7 @@
 		</header>
 
 		<div class="post-body-content">
-			{{if article.cover:}}
+			{{if post.cover:}}
 				<figure class="post-cover-img">
 					{{=IMG(_src=URL(c='default', f='download', args=[post.cover]))}}
 				</figure>
@@ -29,7 +29,7 @@
 		<footer>
 			<div class="navigation">
 				<p>
-					<a href="{{=URL(c='post', f='index')}}">Voltar</a>
+					<a href="{{=URL(c='blog', f='index')}}">Voltar</a>
 				</p>
 			</div>
 		</footer>		

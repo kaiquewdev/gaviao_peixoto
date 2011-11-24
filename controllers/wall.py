@@ -33,7 +33,18 @@ def article():
 	return {'article': article}
 
 def insert():
-	pass
+	form = SQLFORM(Wall, fields=['title', 'cover', 'content'])
+	btn_submit = form.element(_type='submit') 
+
+	btn_submit.attributes['_value'] = 'Inserir'
+	btn_submit.attributes['_class'] = 'act'
+
+	if form.process().accepted:
+		response.flash = 'Novo artigo do mural inserido com sucesso!'
+	elif form.errors:
+		response.flash = 'Não foi possivel inserir o artigo.'
+
+	return {'form': form}
 
 def edit():
 	pass

@@ -6,8 +6,7 @@
 			<div class="inner">
 				<h1>{{=post.title}}</h1>
 				<span class="post-date">
-					{{cdate = post.created_on}}
-					{{='{0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+					{{='Públicado em {0:%d/%m/%Y}'.format(post.created_on)}}
 				</span>
 			</div>
 			<hr />

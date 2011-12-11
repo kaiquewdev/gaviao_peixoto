@@ -18,8 +18,7 @@
 						</h4>
 
 						<span class="wall-article-date">
-							{{cdate = article.created_on}}
-							{{='Criado em {0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+							{{='Criado em {0:%d/%m/%Y}'.format(article.created_on)}}
 						</span>
 					</div>
 				</header>

@@ -32,6 +32,7 @@ def article():
 
 	return {'article': article}
 
+@auth.requires_membership(role='admin')
 def insert():
 	form = SQLFORM(Wall, fields=['title', 'cover', 'content'])
 	btn_submit = form.element(_type='submit') 

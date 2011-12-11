@@ -1,3 +1,4 @@
+//Validadtion: verify email
 function is_email(email, pattern) {
 	email = email || '';
 	pattern = /[a-z0-9]+@[a-z0-9]+(([\.][a-z]{2,3}){1,2})$/;
@@ -11,6 +12,7 @@ function is_email(email, pattern) {
 	}
 }
 
+//Validation: verify if the field was empty
 function is_empty(field) {
 	field = field || '';
 	
@@ -23,7 +25,9 @@ function is_empty(field) {
 	}	
 }
 
+//Main actions
 $(function () {
+	//Contact form
 	var fields = [
 			$('input#name')[0],
 			$('input#email')[0],
@@ -37,4 +41,7 @@ $(function () {
 			$(this).removeClass('error');
 		}
 	})
+	
+	//Map in the contact
+	
 });

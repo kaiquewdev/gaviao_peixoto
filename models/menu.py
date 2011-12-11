@@ -21,11 +21,29 @@ response.google_analytics_id = None
 #########################################################################
 ## this is the main application menu add/remove items as required
 #########################################################################
+T.force('pt-br')
 
-response.menu = [
-    ('Inicio', False, URL('default','index'), []),
-    ('Mural', False, URL('wall','index'), []),
-    ('Blog', False, URL('blog','index'), []),
-    ('Notas', False, URL('notes','index'), []),
-    ('Contato', False, URL('default','contact'), []),
-    ]
+menu = {
+	'off': [
+		('Inicio', False, URL('default','index'), []),
+		('Mural', False, URL('wall','index'), []),
+		('Blog', False, URL('blog','index'), []),
+		('Notas', False, URL('notes','index'), []),
+		('Contato', False, URL('default','contact'), []),
+    ],
+    'on': [
+    	# Menu for other user, with only.
+    ],
+    'admin': [
+    	('Painel', False, URL('panel', 'index'), []),
+    	('Mural', False, URL('wall','index'), []),
+		('Blog', False, URL('blog','index'), []),
+		('Notas', False, URL('notes','index'), []),
+    ],
+}
+
+# Normal menu
+if auth.has_membership('admin'):
+	response.menu = menu['admin']
+else:
+	response.menu = menu['off']

@@ -789,16 +789,16 @@ section.post-profile div.inner span.post-date{
 /*fim mural*/
 
 /*pagination*/
-div.pagination span{
+div.pagination span {
     float: left;
 }
 
-div.pagination span.index-numbers ul{
+div.pagination span.index-numbers ul {
     padding: 0 5px 0;
     margin: 0;
 }
 
-div.pagination span.index-numbers ul li{
+div.pagination span.index-numbers ul li {
     padding: 0 5px 0;
     margin: 0 2px 0 0;
     list-style: none;
@@ -806,35 +806,37 @@ div.pagination span.index-numbers ul li{
     border: 1px solid gray;
 }
 
-div.pagination span.index-numbers ul li.marked{
+div.pagination span.index-numbers ul li.marked {
     background: #ccc;
     text-decoration: underline;
 }
 /*fim pagination*/
 
 /*contato*/
-section.contact article fieldset{
+section.contact article fieldset {
     width: 50%;
     padding: 10px;
     border:none;
     border-right: 1px solid #ccc;
 }
 
-section.wall-create article fieldset{
+section.wall-create article fieldset,
+section.blog-create article fieldset {
     padding:20px 0 10px;
     display: block;
     overflow: hidden;
 }
 
 section.contact article fieldset label,
-section.wall-create article fieldset label{
+section.wall-create article fieldset label {
     display: block;
     clear: right;
     padding: 5px;
 }
 
 section.contact article fieldset label span.contact-label,
-section.wall-create article fieldset label span.create-label{
+section.wall-create article fieldset label span.create-label,
+section.blog-create article fieldset label span.create-label {
     display: block;
     clear: right;
     margin: 0 0 10px;
@@ -843,7 +845,8 @@ section.wall-create article fieldset label span.create-label{
     font-size: 16px;
 }
 
-section.wall-create article fieldset label span.create-label{
+section.wall-create article fieldset label span.create-label,
+section.blog-create article fieldset label span.create-label {
     float: left;
     display: block;
     width: 10%;
@@ -853,7 +856,9 @@ section.wall-create article fieldset label span.create-label{
 section.contact article fieldset label input,
 section.contact article fieldset label textarea,
 section.wall-create article fieldset label input,
-section.wall-create article fieldset label textarea {
+section.wall-create article fieldset label textarea,
+section.blog-create article fieldset label input,
+section.blog-create article fieldset label textarea {
     padding: 8px 5px;
     margin: 0;
     width: 400px;
@@ -867,7 +872,9 @@ section.wall-create article fieldset label textarea {
 }
 
 section.wall-create article fieldset label input,
-section.wall-create article fieldset label textarea {
+section.wall-create article fieldset label textarea,
+section.blog-create article fieldset label input,
+section.blog-create article fieldset label textarea {
     width: 85%;
 }
 
@@ -880,12 +887,14 @@ section.contact article fieldset label textarea.error {
 }
 
 section.contact article fieldset label textarea,
-section.wall-create article fieldset label textarea {
+section.wall-create article fieldset label textarea,
+section.blog-create article fieldset label textarea {
     height: 200px;
 }
 
 section.contact article fieldset label input.act,
-section.wall-create article fieldset label input.act {
+section.wall-create article fieldset label input.act,
+section.blog-create article fieldset label input.act {
     font-weight: 700;
     font-size: 12px;
     padding: 0 25px 0;
@@ -896,7 +905,8 @@ section.wall-create article fieldset label input.act {
     display: block;
 }
 
-section.wall-create article fieldset label input.act {
+section.wall-create article fieldset label input.act,
+section.blog-create article fieldset label input.act {
     margin: 10px 12px;
 }
 /*fim contato*/

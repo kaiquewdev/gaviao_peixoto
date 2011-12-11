@@ -1,0 +1,40 @@
+{{ extend 'layout.html'}}
+
+<section class="main-content">
+	<article>
+		<header>
+			<div class="main-inner">
+				<h1>Painel</h1>
+			</div>
+		</header>
+		<div class="main-inner-content">
+			<hr />
+			<div class="main-content">
+				<span class="block-sub-title">
+					<h2>Artigos</h2> - {{if articles:}}	{{=SPAN('Artigos publicados: %s' % articles['count'])}} {{pass}}
+				</span>
+				<ul class="painel-control">
+					<li>
+						<a href="{{=URL('wall', 'insert')}}">Inserir novo Artigo</a>
+					</li>
+					<li>
+						<a href="{{=URL('wall', 'index')}}">Visualizar artigos</a>
+					</li>
+				</ul>
+				
+				<hr />
+				<span class="block-sub-title">
+					<h2>Blog</h2> - {{if articles:}} {{=SPAN('Posts publicados: %s' % posts['count'])}} {{pass}}
+				</span>
+				<ul class="painel-control">
+					<li>
+						<a href="{{=URL('blog', 'insert')}}">Inserir novo post</a>
+					</li>
+					<li>
+						<a href="{{=URL('blog', 'index')}}">Visualizar posts</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</section>

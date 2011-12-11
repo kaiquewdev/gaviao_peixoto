@@ -1,0 +1,42 @@
+{{extend 'layout.html'}}
+<section class="blog-create article-profile">
+	<article class="blog">
+		<header>
+			<div class="blog-inner-head">
+				<h1>Inserir novo post</h1>
+				<hr />
+			</div>
+			<div class="content">
+				<div class="create-main">
+					{{=form.custom.begin}}
+						<fieldset>
+							<label for="Titulo">
+								<span class="create-label">
+									Titulo:
+								</span>
+								{{=form.custom.widget.title}}
+							</label>
+							<label for="Imagem">
+								<span class="create-label">
+									Imagem:
+								</span>
+								{{=form.custom.widget.cover}}
+							</label>
+							<label for="Conteudo">
+								<span class="create-label">
+									Conteudo:
+								</span>
+								{{=form.custom.widget.content}}
+							</label>
+							<label for="Inserir">
+								{{=form.custom.submit}}
+							</label>
+						</fieldset>
+					{{=form.custom.end}}
+				</div>
+			</div>
+			<footer>
+			</footer>
+		</header>		
+	</article>
+</section>

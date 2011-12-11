@@ -5,8 +5,7 @@
 			<div class="inner">
 				<h1>{{=article.title}}</h1>
 				<span class="article-date">
-					{{cdate = article.created_on}}
-					{{='{0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+					{{='Criado em {0:%d/%m/%Y}'.format(article.created_on)}}
 				</span>
 			</div>
 			<hr />

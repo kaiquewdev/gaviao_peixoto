@@ -18,8 +18,7 @@
 						</h4>
 
 						<span class="blog-article-date">
-							{{cdate = post.created_on}}
-							{{='Públicado em {0}/{1}/{2}'.format(cdate.day, cdate.month, cdate.year)}}
+							{{='Públicado em {0:%d/%m/%Y}'.format(post.created_on)}}
 						</span>
 					</div>
 				</header>

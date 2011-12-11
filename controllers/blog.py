@@ -31,3 +31,18 @@ def post():
 		
 
 	return {'post': post}
+
+#@auth.requires_membership(role='admin')
+def insert():
+	form = SQLFORM(Blog, fields=['title', 'cover', 'content'])
+	btn_submit = form.element(_type='submit') 
+
+	btn_submit.attributes['_value'] = 'Inserir'
+	btn_submit.attributes['_class'] = 'act'
+
+	if form.process().accepted:
+		response.flash = 'Novo artigo do mural inserido com sucesso!'
+	elif form.errors:
+		response.flash = 'Não foi possivel inserir o artigo.'
+
+	return {'form': form}

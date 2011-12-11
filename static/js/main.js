@@ -25,6 +25,28 @@ function is_empty(field) {
 	}	
 }
 
+//Initialize map
+function CreateMap() {
+	var args = arguments,
+		myLatlng = new google.maps.LatLng(args[1], args[2]),
+		myOptions = {
+			  zoom: args[3],
+			  center: myLatlng,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+		},
+		map = new google.maps.Map(document.getElementById(args[0]), myOptions);
+		
+		if (typeof args[0] !== 'undefinded' && 
+			typeof args[1] !== 'undefinded' &&
+			typeof args[2] !== 'undefinded' &&
+			typeof args[3] !== 'undefinded') {
+			
+			return map;
+		} else {
+			return false;
+		}
+} 
+
 //Main actions
 $(function () {
 	//Contact form
@@ -43,5 +65,5 @@ $(function () {
 	})
 	
 	//Map in the contact
-	
+	var newMap = CreateMap('map-addrs', -23.404892, -46.7599589, 18);
 });

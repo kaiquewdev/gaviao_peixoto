@@ -13,6 +13,7 @@
 'First name': 'First name',
 'Group ID': 'Group ID',
 'Invalid email': 'Invalid email',
+'Invalid login': 'Invalid login',
 'Last name': 'Last name',
 'Logged in': 'Logged in',
 'Logged out': 'Logged out',
